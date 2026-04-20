@@ -1,110 +1,107 @@
-
 <style>
 *{box-sizing:border-box;margin:0;padding:0;font-family:system-ui,-apple-system,sans-serif}
-:root{--ac:#3DDC97;--acd:#1DB874;--act:#0a3d2b;--sb:#111c17;--sb2:#1a2e24;--sb3:#243d30}
-.app{display:flex;height:700px;border-radius:12px;overflow:hidden;border:0.5px solid var(--color-border-tertiary)}
-.sidebar{width:200px;flex-shrink:0;background:var(--sb);display:flex;flex-direction:column}
-.sb-logo{padding:14px 14px 10px;border-bottom:0.5px solid rgba(61,220,151,0.15)}
+:root{--ac:#3DDC97;--acd:#1DB874;--act:#0a3d2b;--sb:#0f1a14;--sb2:#172210;--sb3:#1e3020}
+.app{display:flex;height:700px;border-radius:12px;overflow:hidden;border:1px solid #d0d0d0}
+.sidebar{width:196px;flex-shrink:0;background:var(--sb);display:flex;flex-direction:column;border-right:1px solid #2a3d2e}
+.sb-logo{padding:13px 14px 11px;border-bottom:1px solid rgba(61,220,151,0.12)}
 .sb-logo-row{display:flex;align-items:center;gap:8px}
 .sb-icon{width:32px;height:32px;background:#3DDC97;border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.sb-brand{display:flex;flex-direction:column;line-height:1.15}
-.sb-brand span:first-child{font-size:11px;font-weight:400;color:rgba(255,255,255,0.6)}
-.sb-brand span:last-child{font-size:13px;font-weight:700;color:#fff}
-.sb-nav{flex:1;overflow-y:auto;padding:8px 0}
-.sb-sec{font-size:9px;font-weight:600;color:rgba(255,255,255,0.3);padding:10px 14px 3px;text-transform:uppercase;letter-spacing:.08em}
-.ni{display:flex;align-items:center;gap:8px;padding:7px 14px;font-size:12px;color:rgba(255,255,255,0.55);cursor:pointer;border-left:2px solid transparent;transition:all .15s;position:relative}
-.ni:hover{background:var(--sb2);color:rgba(255,255,255,0.85)}
+.sb-brand span:first-child{font-size:11px;font-weight:400;color:rgba(255,255,255,0.5);display:block;line-height:1.2}
+.sb-brand span:last-child{font-size:13px;font-weight:700;color:#fff;display:block;line-height:1.2}
+.sb-nav{flex:1;overflow-y:auto;padding:6px 0}
+.sb-sec{font-size:9px;font-weight:600;color:rgba(255,255,255,0.28);padding:10px 14px 3px;text-transform:uppercase;letter-spacing:.09em}
+.ni{display:flex;align-items:center;gap:8px;padding:7px 14px;font-size:12px;color:rgba(255,255,255,0.5);cursor:pointer;border-left:2px solid transparent;transition:all .15s}
+.ni:hover{background:var(--sb2);color:rgba(255,255,255,0.8)}
 .ni.active{background:var(--sb3);color:#3DDC97;border-left-color:#3DDC97;font-weight:500}
-.ni-badge{margin-left:auto;font-size:9px;padding:1px 5px;border-radius:8px;background:#3DDC97;color:#0a3d2b;font-weight:600}
-.sb-footer{padding:10px 14px;border-top:0.5px solid rgba(61,220,151,0.15)}
+.ni-badge{margin-left:auto;font-size:9px;padding:1px 5px;border-radius:8px;background:#3DDC97;color:#0a3d2b;font-weight:700}
+.sb-footer{padding:10px 14px;border-top:1px solid rgba(61,220,151,0.1)}
 .sb-user{display:flex;align-items:center;gap:7px}
 .sb-avatar{width:28px;height:28px;border-radius:50%;background:#3DDC97;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#0a3d2b;flex-shrink:0}
 .sb-uname{font-size:11px;color:#fff;font-weight:500}
-.sb-urole{font-size:9px;color:rgba(255,255,255,0.4)}
-.main{flex:1;display:flex;flex-direction:column;background:var(--color-background-tertiary);overflow:hidden}
-.topbar{display:flex;align-items:center;justify-content:space-between;padding:10px 18px;background:var(--color-background-primary);border-bottom:0.5px solid var(--color-border-tertiary);flex-shrink:0}
-.tb-title{font-size:15px;font-weight:500;color:var(--color-text-primary)}
-.tb-sub{font-size:10px;color:var(--color-text-secondary)}
+.sb-urole{font-size:9px;color:rgba(255,255,255,0.35)}
+.main{flex:1;display:flex;flex-direction:column;background:#f4f6f5;overflow:hidden}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:10px 18px;background:#fff;border-bottom:1px solid #e2e8e5;flex-shrink:0}
+.tb-title{font-size:15px;font-weight:600;color:#111}
+.tb-sub{font-size:10px;color:#888;margin-top:1px}
 .tb-right{display:flex;align-items:center;gap:6px}
-.btn-ac{font-size:11px;padding:5px 12px;border-radius:6px;cursor:pointer;border:none;background:#3DDC97;color:#0a3d2b;font-weight:600;transition:all .15s}
-.btn-ac:hover{background:#2ec988}
-.btn-outline{font-size:11px;padding:5px 10px;border-radius:6px;cursor:pointer;border:0.5px solid var(--color-border-secondary);background:transparent;color:var(--color-text-secondary)}
-.btn-outline:hover{background:var(--color-background-secondary)}
-.content{flex:1;overflow-y:auto;padding:16px 18px}
+.btn-ac{font-size:11px;padding:5px 13px;border-radius:6px;cursor:pointer;border:none;background:#3DDC97;color:#0a3d2b;font-weight:700;transition:background .15s}
+.btn-ac:hover{background:#2dc988}
+.btn-outline{font-size:11px;padding:5px 10px;border-radius:6px;cursor:pointer;border:1px solid #d0d8d4;background:#fff;color:#555}
+.btn-outline:hover{background:#f0f4f2}
+.content{flex:1;overflow-y:auto;padding:14px 16px}
 .page{display:none}
 .page.active{display:block}
-.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:14px}
-.mc{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:9px;padding:12px 14px;cursor:pointer;transition:border-color .15s}
-.mc:hover{border-color:#3DDC97}
-.mc-label{font-size:10px;color:var(--color-text-secondary);margin-bottom:2px}
-.mc-val{font-size:19px;font-weight:500}
-.mc-sub{font-size:10px;margin-top:3px;color:var(--color-text-secondary)}
+.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:12px}
+.mc{background:#fff;border:1px solid #dde4e0;border-radius:9px;padding:13px 15px;cursor:pointer;transition:border-color .15s;border-top:3px solid #dde4e0}
+.mc:hover{border-color:#3DDC97;border-top-color:#3DDC97}
+.mc.accent{border-top-color:#3DDC97}
+.mc-label{font-size:10px;color:#777;margin-bottom:3px;font-weight:500;text-transform:uppercase;letter-spacing:.04em}
+.mc-val{font-size:20px;font-weight:600}
+.mc-sub{font-size:10px;margin-top:4px;color:#999}
 .mc-up{color:#1DB874}
 .mc-warn{color:#BA7517}
 .mc-down{color:#e24b4a}
-.row2{display:grid;grid-template-columns:1.7fr 1fr;gap:10px;margin-bottom:10px}
+.row2{display:grid;grid-template-columns:1.65fr 1fr;gap:10px;margin-bottom:10px}
 .row2b{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:9px;padding:12px 14px}
-.card-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
-.card-title{font-size:12px;font-weight:500;color:var(--color-text-primary)}
-.link-sm{font-size:10px;color:#1DB874;cursor:pointer}
+.card{background:#fff;border:1px solid #dde4e0;border-radius:9px;padding:13px 15px}
+.card-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid #eef1ef}
+.card-title{font-size:12px;font-weight:600;color:#222}
+.link-sm{font-size:10px;color:#1DB874;cursor:pointer;font-weight:500}
 .link-sm:hover{text-decoration:underline}
 .tbl{width:100%;border-collapse:collapse;font-size:11px}
-.tbl th{color:var(--color-text-secondary);font-weight:500;text-align:left;padding:5px 8px;border-bottom:0.5px solid var(--color-border-tertiary);white-space:nowrap}
-.tbl td{padding:6px 8px;color:var(--color-text-primary);border-bottom:0.5px solid var(--color-border-tertiary)}
+.tbl thead{background:#f7faf8}
+.tbl th{color:#666;font-weight:600;text-align:left;padding:6px 9px;border-bottom:1px solid #e2e8e4;border-top:1px solid #e2e8e4;font-size:10px;text-transform:uppercase;letter-spacing:.04em}
+.tbl td{padding:7px 9px;color:#222;border-bottom:1px solid #eef1ef}
 .tbl tr:last-child td{border-bottom:none}
-.tbl tr:hover td{background:#e8faf3;cursor:pointer}
-.st{font-size:9px;padding:2px 6px;border-radius:3px;font-weight:600;white-space:nowrap}
-.s-ok{background:#e8faf3;color:#0a3d2b}
-.s-cart{background:#faeeda;color:#633806}
-.s-pn{background:#e6f1fb;color:#0c447c}
-.s-anul{background:#fcebeb;color:#791f1f}
-.s-inst{background:#e8faf3;color:#085041}
-.s-mtto{background:#e6f1fb;color:#0c447c}
-.s-rep{background:#faeeda;color:#633806}
-.bar-row{display:flex;align-items:center;gap:7px;margin-bottom:8px}
-.bar-lbl{font-size:11px;color:var(--color-text-secondary);width:82px;flex-shrink:0}
-.bar-track{flex:1;height:7px;background:var(--color-background-secondary);border-radius:4px;overflow:hidden}
-.bar-fill{height:100%;border-radius:4px}
-.bar-amt{font-size:11px;font-weight:500;color:var(--color-text-primary);min-width:48px;text-align:right}
-.move-item{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:0.5px solid var(--color-border-tertiary);font-size:11px}
-.move-item:last-child{border-bottom:none}
-.move-pos{color:#1DB874;font-weight:500}
-.move-neg{color:#e24b4a;font-weight:500}
-.alert-item{display:flex;align-items:flex-start;gap:8px;padding:7px 0;border-bottom:0.5px solid var(--color-border-tertiary);font-size:11px}
+.tbl tr:hover td{background:#f0faf6;cursor:pointer}
+.st{font-size:9px;padding:2px 7px;border-radius:3px;font-weight:700;white-space:nowrap;border:1px solid transparent}
+.s-ok{background:#e6f9f2;color:#0a6640;border-color:#b6e8d4}
+.s-cart{background:#fff7e6;color:#7a4a00;border-color:#f5d9a0}
+.s-pn{background:#e8f0fb;color:#1a3d8f;border-color:#b0c8f0}
+.s-anul{background:#fdeaea;color:#7a1a1a;border-color:#f0b0b0}
+.s-inst{background:#e6f9f2;color:#085041;border-color:#b6e8d4}
+.s-mtto{background:#e8f0fb;color:#0c447c;border-color:#b0c8f0}
+.s-rep{background:#fff7e6;color:#633806;border-color:#f5d9a0}
+.bar-row{display:flex;align-items:center;gap:8px;margin-bottom:9px}
+.bar-lbl{font-size:11px;color:#666;width:82px;flex-shrink:0}
+.bar-track{flex:1;height:8px;background:#eef1ef;border-radius:4px;overflow:hidden;border:1px solid #dde4e0}
+.bar-fill{height:100%;border-radius:3px}
+.bar-amt{font-size:11px;font-weight:600;color:#222;min-width:48px;text-align:right}
+.move-pos{color:#1DB874;font-weight:600}
+.move-neg{color:#e24b4a;font-weight:600}
+.alert-item{display:flex;align-items:flex-start;gap:9px;padding:8px 0;border-bottom:1px solid #eef1ef;font-size:11px}
 .alert-item:last-child{border-bottom:none}
 .alert-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:3px}
+.tab-pills{display:flex;gap:4px;margin-bottom:10px;flex-wrap:wrap}
+.pill{font-size:10px;padding:4px 11px;border-radius:12px;cursor:pointer;border:1px solid #d0d8d4;background:#fff;color:#666;font-weight:500;transition:all .15s}
+.pill:hover{background:#f0faf6;border-color:#3DDC97}
+.pill.active{background:#3DDC97;color:#0a3d2b;border-color:#3DDC97;font-weight:700}
 .filters{display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap}
-.filters select,.filters input{font-size:11px;padding:5px 8px;border-radius:6px;border:0.5px solid var(--color-border-secondary);background:var(--color-background-primary);color:var(--color-text-primary)}
-.tab-pills{display:flex;gap:4px;margin-bottom:10px}
-.pill{font-size:10px;padding:4px 10px;border-radius:12px;cursor:pointer;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);transition:all .15s}
-.pill:hover{background:var(--color-background-secondary)}
-.pill.active{background:#3DDC97;color:#0a3d2b;border-color:#3DDC97;font-weight:600}
-.modal-bg{display:none;position:absolute;inset:0;background:rgba(0,0,0,0.45);z-index:100;border-radius:12px;align-items:center;justify-content:center}
+.filters select,.filters input{font-size:11px;padding:5px 9px;border-radius:6px;border:1px solid #d0d8d4;background:#fff;color:#333}
+.modal-bg{display:none;position:absolute;inset:0;background:rgba(0,0,0,0.4);z-index:100;border-radius:12px;align-items:center;justify-content:center}
 .modal-bg.open{display:flex}
-.modal{background:var(--color-background-primary);border-radius:10px;padding:18px;width:340px;max-height:480px;overflow-y:auto;position:relative}
-.modal-close{position:absolute;top:10px;right:12px;font-size:16px;cursor:pointer;color:var(--color-text-secondary);background:none;border:none;line-height:1}
-.modal-title{font-size:14px;font-weight:500;color:var(--color-text-primary);margin-bottom:12px;padding-right:20px}
-.detail-row{display:flex;justify-content:space-between;padding:5px 0;border-bottom:0.5px solid var(--color-border-tertiary);font-size:12px}
+.modal{background:#fff;border-radius:10px;padding:20px;width:340px;max-height:480px;overflow-y:auto;position:relative;border:1px solid #dde4e0}
+.modal-close{position:absolute;top:12px;right:14px;font-size:16px;cursor:pointer;color:#999;background:none;border:none;line-height:1}
+.modal-title{font-size:14px;font-weight:600;color:#111;margin-bottom:12px;padding-right:20px;padding-bottom:10px;border-bottom:1px solid #eef1ef}
+.detail-row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #f0f2f0;font-size:12px}
 .detail-row:last-child{border-bottom:none}
-.detail-lbl{color:var(--color-text-secondary)}
-.detail-val{font-weight:500;color:var(--color-text-primary)}
-.toast{position:absolute;bottom:14px;right:14px;background:#111c17;color:#3DDC97;font-size:11px;padding:7px 14px;border-radius:6px;opacity:0;transition:opacity .3s;pointer-events:none;z-index:200;border:0.5px solid rgba(61,220,151,0.3)}
+.detail-lbl{color:#777}
+.detail-val{font-weight:600;color:#111}
+.toast{position:absolute;bottom:14px;right:14px;background:#0f1a14;color:#3DDC97;font-size:11px;padding:8px 14px;border-radius:7px;opacity:0;transition:opacity .3s;pointer-events:none;z-index:200;border:1px solid rgba(61,220,151,0.25);font-weight:500}
 .toast.show{opacity:1}
-.year-tabs{display:flex;gap:3px}
-.ytab{font-size:10px;padding:4px 10px;border-radius:5px;border:0.5px solid var(--color-border-tertiary);cursor:pointer;color:var(--color-text-secondary);background:transparent}
-.ytab:hover{background:var(--color-background-secondary)}
-.ytab.active{background:#3DDC97;color:#0a3d2b;border-color:#3DDC97;font-weight:600}
-.section-title{font-size:13px;font-weight:500;color:var(--color-text-primary);margin-bottom:10px;padding-bottom:6px;border-bottom:0.5px solid var(--color-border-tertiary)}
-.cliente-card{display:flex;align-items:center;gap:10px;padding:8px;border-radius:7px;border:0.5px solid var(--color-border-tertiary);margin-bottom:7px;cursor:pointer;background:var(--color-background-primary)}
-.cliente-card:hover{border-color:#3DDC97;background:#e8faf3}
+.ytab{font-size:10px;padding:4px 11px;border-radius:5px;border:1px solid #d0d8d4;cursor:pointer;color:#666;background:#fff;font-weight:500}
+.ytab:hover{background:#f0faf6}
+.ytab.active{background:#3DDC97;color:#0a3d2b;border-color:#3DDC97;font-weight:700}
+.section-title{font-size:13px;font-weight:600;color:#111;margin-bottom:10px;padding-bottom:7px;border-bottom:2px solid #3DDC97}
+.cliente-card{display:flex;align-items:center;gap:10px;padding:9px 11px;border-radius:7px;border:1px solid #dde4e0;margin-bottom:7px;cursor:pointer;background:#fff;transition:border-color .15s}
+.cliente-card:hover{border-color:#3DDC97;background:#f5fdf9}
 .cli-av{width:34px;height:34px;border-radius:50%;background:#3DDC97;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#0a3d2b;flex-shrink:0}
-.iva-box{background:var(--color-background-secondary);border-radius:7px;padding:10px 12px;margin-bottom:8px}
-.iva-label{font-size:10px;color:var(--color-text-secondary);margin-bottom:2px}
-.iva-val{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+.iva-box{background:#f7faf8;border:1px solid #dde4e0;border-radius:7px;padding:11px 13px;margin-bottom:8px}
+.iva-label{font-size:10px;color:#777;margin-bottom:2px;font-weight:500;text-transform:uppercase;letter-spacing:.04em}
+.iva-val{font-size:17px;font-weight:600;color:#111}
+.divider{border:none;border-top:1px solid #eef1ef;margin:9px 0}
+.year-tabs{display:flex;gap:3px}
 </style>
-
-<h2 class="sr-only">AirConsulting Pro — Sistema contable navegable con dashboard, transacciones, cartera, clientes e IVA</h2>
 
 <div class="app" style="position:relative" id="app">
   <div class="sidebar">
@@ -120,7 +117,6 @@
         <div class="sb-brand"><span>Air</span><span>Consulting.</span></div>
       </div>
     </div>
-
     <div class="sb-nav">
       <div class="sb-sec">Principal</div>
       <div class="ni active" onclick="go('dashboard',this)">
@@ -130,8 +126,7 @@
       <div class="sb-sec">Facturación</div>
       <div class="ni" onclick="go('transacciones',this)">
         <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 3h10M1.5 6.5h10M1.5 10h6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
-        Transacciones
-        <span class="ni-badge">395</span>
+        Transacciones <span class="ni-badge">395</span>
       </div>
       <div class="ni" onclick="go('ingresos',this)">
         <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 9.5l3-4 2.5 2.5 3-5 2.5 2.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -148,8 +143,7 @@
       </div>
       <div class="ni" onclick="go('cartera',this)">
         <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 10.5V5l4.5-3.5L11 5v5.5M5 10.5V7.5h3v3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Cartera
-        <span class="ni-badge">32</span>
+        Cartera <span class="ni-badge">32</span>
       </div>
       <div class="ni" onclick="go('clientes',this)">
         <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="5" cy="4" r="2.2" stroke="currentColor" stroke-width="1.2"/><path d="M1 11c0-2.2 1.8-4 4-4s4 1.8 4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="10" cy="4.5" r="1.6" stroke="currentColor" stroke-width="1.1"/><path d="M12 10c0-1.7-1-3-2.5-3" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg>
@@ -165,7 +159,6 @@
         P&amp;G mensual
       </div>
     </div>
-
     <div class="sb-footer">
       <div class="sb-user">
         <div class="sb-avatar">AC</div>
@@ -181,7 +174,7 @@
         <div class="tb-sub" id="tb-sub">Lunes 20 de abril, 2026</div>
       </div>
       <div class="tb-right">
-        <div class="year-tabs" id="year-tabs">
+        <div class="year-tabs">
           <div class="ytab" onclick="setYear(2024,this)">2024</div>
           <div class="ytab" onclick="setYear(2025,this)">2025</div>
           <div class="ytab active" onclick="setYear(2026,this)">2026</div>
@@ -195,22 +188,22 @@
       <!-- DASHBOARD -->
       <div class="page active" id="p-dashboard">
         <div class="metrics">
-          <div class="mc" onclick="go('ingresos',document.querySelector('[onclick*=ingresos]'))">
+          <div class="mc accent" onclick="go('ingresos',qni('ingresos'))">
             <div class="mc-label">Ingresos brutos</div>
             <div class="mc-val mc-up" id="d-ing">$117.5M</div>
             <div class="mc-sub mc-up" id="d-ing-s">↑ +41% vs 2024</div>
           </div>
-          <div class="mc" onclick="go('costos',document.querySelector('[onclick*=costos]'))">
+          <div class="mc" onclick="go('costos',qni('costos'))">
             <div class="mc-label">Costos operativos</div>
             <div class="mc-val" id="d-cost">$50.5M</div>
             <div class="mc-sub" id="d-cost-s">43% del ingreso</div>
           </div>
-          <div class="mc" onclick="go('gastos',document.querySelector('[onclick*=gastos]'))">
+          <div class="mc" onclick="go('gastos',qni('gastos'))">
             <div class="mc-label">Gastos</div>
             <div class="mc-val" id="d-gast">$68.7M</div>
             <div class="mc-sub mc-down" id="d-gast-s">Revisión recomendada</div>
           </div>
-          <div class="mc" onclick="go('cartera',document.querySelector('[onclick*=cartera]'))">
+          <div class="mc" onclick="go('cartera',qni('cartera'))">
             <div class="mc-label">Cartera pendiente</div>
             <div class="mc-val mc-warn" id="d-cart">$53.6M</div>
             <div class="mc-sub" id="d-cart-s">32 facturas abiertas</div>
@@ -220,29 +213,28 @@
           <div class="card">
             <div class="card-hdr">
               <span class="card-title">Ingresos vs egresos por mes</span>
-              <span class="link-sm" onclick="go('ingresos',document.querySelector('[onclick*=ingresos]'))">Ver detalle →</span>
+              <span class="link-sm" onclick="go('ingresos',qni('ingresos'))">Ver detalle →</span>
             </div>
-            <div style="display:flex;gap:10px;margin-bottom:8px;font-size:10px;color:var(--color-text-secondary)">
-              <span><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#3DDC97;margin-right:3px"></span>Ingresos</span>
-              <span><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#378ADD;margin-right:3px"></span>Costos</span>
-              <span><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#EF9F27;margin-right:3px"></span>Gastos</span>
+            <div style="display:flex;gap:12px;margin-bottom:8px;font-size:10px;color:#666">
+              <span><span style="display:inline-block;width:9px;height:9px;border-radius:2px;background:#3DDC97;margin-right:3px;vertical-align:middle"></span>Ingresos</span>
+              <span><span style="display:inline-block;width:9px;height:9px;border-radius:2px;background:#378ADD;margin-right:3px;vertical-align:middle"></span>Costos</span>
+              <span><span style="display:inline-block;width:9px;height:9px;border-radius:2px;background:#EF9F27;margin-right:3px;vertical-align:middle"></span>Gastos</span>
             </div>
-            <div style="position:relative;width:100%;height:150px"><canvas id="c-dash" role="img" aria-label="Ingresos y egresos por mes 2026">Ene $42M, Feb $58M, Mar $91M, Abr $45M</canvas></div>
+            <div style="position:relative;width:100%;height:148px"><canvas id="c-dash" role="img" aria-label="Ingresos y egresos por mes 2026">Ene $42M Feb $58M Mar $91M Abr $45M</canvas></div>
           </div>
           <div class="card">
             <div class="card-hdr"><span class="card-title">Por tipo de servicio</span></div>
             <div class="bar-row"><span class="bar-lbl">Instalación</span><div class="bar-track"><div class="bar-fill" style="width:56%;background:#3DDC97"></div></div><span class="bar-amt">$66.1M</span></div>
             <div class="bar-row"><span class="bar-lbl">Mantenimiento</span><div class="bar-track"><div class="bar-fill" style="width:37%;background:#378ADD"></div></div><span class="bar-amt">$43.1M</span></div>
             <div class="bar-row"><span class="bar-lbl">Reparación</span><div class="bar-track"><div class="bar-fill" style="width:7%;background:#EF9F27"></div></div><span class="bar-amt">$8.4M</span></div>
-            <div style="border-top:0.5px solid var(--color-border-tertiary);padding-top:8px;margin-top:4px">
-              <div class="card-title" style="margin-bottom:7px">Comparativo anual</div>
-              <div style="position:relative;width:100%;height:65px"><canvas id="c-anual" role="img" aria-label="Comparativo anual">2024: $283M, 2025: $402M, 2026: $118M</canvas></div>
-            </div>
+            <hr class="divider">
+            <div class="card-title" style="margin-bottom:8px">Comparativo anual</div>
+            <div style="position:relative;width:100%;height:66px"><canvas id="c-anual" role="img" aria-label="Comparativo anual">2024: $283M 2025: $402M 2026: $118M</canvas></div>
           </div>
         </div>
         <div class="row2b">
           <div class="card">
-            <div class="card-hdr"><span class="card-title">Últimas transacciones</span><span class="link-sm" onclick="go('transacciones',document.querySelector('[onclick*=transacciones]'))">Ver todas →</span></div>
+            <div class="card-hdr"><span class="card-title">Últimas transacciones</span><span class="link-sm" onclick="go('transacciones',qni('transacciones'))">Ver todas →</span></div>
             <table class="tbl">
               <thead><tr><th>Cliente</th><th>Tipo</th><th>Total</th><th>Estado</th></tr></thead>
               <tbody>
@@ -255,10 +247,10 @@
           </div>
           <div class="card">
             <div class="card-hdr"><span class="card-title">Alertas del sistema</span></div>
-            <div class="alert-item"><div class="alert-dot" style="background:#e24b4a"></div><div><div style="font-weight:500;color:var(--color-text-primary)">Cartera alta — QVALTEC</div><div style="color:var(--color-text-secondary);margin-top:1px">$8.6M pendiente de recaudo</div></div></div>
-            <div class="alert-item"><div class="alert-dot" style="background:#EF9F27"></div><div><div style="font-weight:500;color:var(--color-text-primary)">IVA a favor DIAN</div><div style="color:var(--color-text-secondary);margin-top:1px">$1.55M saldo a favor Ene–Feb</div></div></div>
-            <div class="alert-item"><div class="alert-dot" style="background:#EF9F27"></div><div><div style="font-weight:500;color:var(--color-text-primary)">CXP Friomaster vence pronto</div><div style="color:var(--color-text-secondary);margin-top:1px">$10.6M — 26 abr 2026</div></div></div>
-            <div class="alert-item"><div class="alert-dot" style="background:#3DDC97"></div><div><div style="font-weight:500;color:var(--color-text-primary)">Marzo cierra fuerte</div><div style="color:var(--color-text-secondary);margin-top:1px">$91.4M ingresado — mejor mes</div></div></div>
+            <div class="alert-item"><div class="alert-dot" style="background:#e24b4a"></div><div><div style="font-weight:600;color:#111;font-size:11px">Cartera alta — QVALTEC</div><div style="color:#777;margin-top:1px;font-size:10px">$8.6M pendiente de recaudo</div></div></div>
+            <div class="alert-item"><div class="alert-dot" style="background:#EF9F27"></div><div><div style="font-weight:600;color:#111;font-size:11px">IVA a favor DIAN</div><div style="color:#777;margin-top:1px;font-size:10px">$1.55M saldo a favor Ene–Feb</div></div></div>
+            <div class="alert-item"><div class="alert-dot" style="background:#EF9F27"></div><div><div style="font-weight:600;color:#111;font-size:11px">CXP Friomaster vence pronto</div><div style="color:#777;margin-top:1px;font-size:10px">$10.6M — 26 abr 2026</div></div></div>
+            <div class="alert-item"><div class="alert-dot" style="background:#3DDC97"></div><div><div style="font-weight:600;color:#111;font-size:11px">Marzo cierra fuerte</div><div style="color:#777;margin-top:1px;font-size:10px">$91.4M ingresado — mejor mes</div></div></div>
           </div>
         </div>
       </div>
@@ -275,38 +267,34 @@
         <div class="filters">
           <select id="f-mes" onchange="applyFilters()"><option value="">Todos los meses</option><option>ENERO</option><option>FEBRERO</option><option>MARZO</option><option>ABRIL</option></select>
           <select id="f-estado" onchange="applyFilters()"><option value="">Todos los estados</option><option>OK</option><option>CANCELADO</option><option>CARTERA</option><option>PN</option></select>
-          <input id="f-buscar" placeholder="Buscar cliente..." oninput="applyFilters()" style="width:160px">
+          <input id="f-buscar" placeholder="Buscar cliente..." oninput="applyFilters()" style="width:155px">
         </div>
         <div class="card">
-          <table class="tbl" id="tbl-txn">
-            <thead><tr><th>Fecha</th><th>Cliente</th><th>N° Factura</th><th>Tipo</th><th>Servicio</th><th>Total</th><th>Estado</th></tr></thead>
-            <tbody id="tbody-txn"></tbody>
-          </table>
+          <table class="tbl"><thead><tr><th>Fecha</th><th>Cliente</th><th>N° Factura</th><th>Tipo</th><th>Servicio</th><th>Total</th><th>Estado</th></tr></thead>
+          <tbody id="tbody-txn"></tbody></table>
         </div>
       </div>
 
       <!-- INGRESOS -->
       <div class="page" id="p-ingresos">
         <div class="row2b" style="margin-bottom:10px">
-          <div class="mc"><div class="mc-label">Total ingresos 2026</div><div class="mc-val mc-up">$117.5M</div><div class="mc-sub">104 registros FV+CC</div></div>
+          <div class="mc accent"><div class="mc-label">Total ingresos 2026</div><div class="mc-val mc-up">$117.5M</div><div class="mc-sub">104 registros FV+CC</div></div>
           <div class="mc"><div class="mc-label">IVA generado</div><div class="mc-val">$12.7M</div><div class="mc-sub">19% sobre FV</div></div>
         </div>
-        <div class="card">
+        <div class="card" style="margin-bottom:10px">
           <div class="card-hdr"><span class="card-title">Ingresos mensuales 2026</span></div>
-          <div style="position:relative;width:100%;height:180px"><canvas id="c-ing" role="img" aria-label="Ingresos mensuales 2026">Ene $42M, Feb $58M, Mar $91M, Abr $45M</canvas></div>
+          <div style="position:relative;width:100%;height:170px"><canvas id="c-ing" role="img" aria-label="Ingresos mensuales 2026">Ene $42M Feb $58M Mar $91M Abr $45M</canvas></div>
         </div>
-        <div class="card" style="margin-top:10px">
+        <div class="card">
           <div class="card-hdr"><span class="card-title">Top clientes por facturación</span></div>
-          <table class="tbl">
-            <thead><tr><th>Cliente</th><th>Facturas</th><th>Subtotal</th><th>IVA</th><th>Total</th><th>Tipo servicio</th></tr></thead>
-            <tbody>
-              <tr onclick="openModal('FD SAN JORGE','FV','$20.9M','OK','Reparación+Mtto','2026')"><td>FD San Jorge</td><td>18</td><td>$17.5M</td><td>$3.4M</td><td>$20.9M</td><td><span class="st s-rep">Reparación</span></td></tr>
-              <tr onclick="openModal('Wh Logistic','FV','$17.7M','OK','Mantenimiento','2026')"><td>Wh Logistic</td><td>12</td><td>$14.8M</td><td>$2.8M</td><td>$17.7M</td><td><span class="st s-mtto">Mantenimiento</span></td></tr>
-              <tr onclick="openModal('Andres Florez Healthcare','FV','$9.6M','OK','Instalación','2026')"><td>Andres Florez Healthcare</td><td>9</td><td>$8.1M</td><td>$1.5M</td><td>$9.6M</td><td><span class="st s-inst">Instalación</span></td></tr>
-              <tr onclick="openModal('QVALTEC','FV','$9.3M','CARTERA','Mantenimiento','2026')"><td>QVALTEC</td><td>8</td><td>$7.8M</td><td>$1.5M</td><td>$9.3M</td><td><span class="st s-mtto">Mantenimiento</span></td></tr>
-              <tr onclick="openModal('IGICOL SAS','FV','$7.4M','OK','Instalación','2026')"><td>IGICOL SAS</td><td>6</td><td>$6.3M</td><td>$1.2M</td><td>$7.4M</td><td><span class="st s-inst">Instalación</span></td></tr>
-            </tbody>
-          </table>
+          <table class="tbl"><thead><tr><th>Cliente</th><th>Facturas</th><th>Subtotal</th><th>IVA</th><th>Total</th><th>Servicio</th></tr></thead>
+          <tbody>
+            <tr onclick="openModal('FD SAN JORGE','FV399','$20.9M','OK','Reparación+Mtto','2026')"><td>FD San Jorge</td><td>18</td><td>$17.5M</td><td>$3.4M</td><td>$20.9M</td><td><span class="st s-rep">Reparación</span></td></tr>
+            <tr onclick="openModal('Wh Logistic','FV401','$17.7M','OK','Mantenimiento','2026')"><td>Wh Logistic</td><td>12</td><td>$14.8M</td><td>$2.8M</td><td>$17.7M</td><td><span class="st s-mtto">Mantenimiento</span></td></tr>
+            <tr onclick="openModal('Andres Florez','FV392','$9.6M','OK','Instalación','2026')"><td>Andres Florez Healthcare</td><td>9</td><td>$8.1M</td><td>$1.5M</td><td>$9.6M</td><td><span class="st s-inst">Instalación</span></td></tr>
+            <tr onclick="openModal('QVALTEC','FV','$9.3M','CARTERA','Mantenimiento','2026')"><td>QVALTEC</td><td>8</td><td>$7.8M</td><td>$1.5M</td><td>$9.3M</td><td><span class="st s-mtto">Mantenimiento</span></td></tr>
+            <tr onclick="openModal('IGICOL SAS','FV396','$7.4M','OK','Instalación','2026')"><td>IGICOL SAS</td><td>6</td><td>$6.3M</td><td>$1.2M</td><td>$7.4M</td><td><span class="st s-inst">Instalación</span></td></tr>
+          </tbody></table>
         </div>
       </div>
 
@@ -316,24 +304,22 @@
           <div class="mc"><div class="mc-label">Costos operativos 2026</div><div class="mc-val">$50.5M</div><div class="mc-sub">43% del ingreso total</div></div>
           <div class="mc"><div class="mc-label">Promedio mensual</div><div class="mc-val">$12.6M</div><div class="mc-sub">Enero–Abril</div></div>
         </div>
-        <div class="card">
+        <div class="card" style="margin-bottom:10px">
           <div class="card-hdr"><span class="card-title">Costos por mes</span></div>
-          <div style="position:relative;width:100%;height:160px"><canvas id="c-cost" role="img" aria-label="Costos operativos mensuales">Ene $8.2M, Feb $14.5M, Mar $20M, Abr $7.8M</canvas></div>
+          <div style="position:relative;width:100%;height:150px"><canvas id="c-cost" role="img" aria-label="Costos operativos mensuales">Ene $8.2M Feb $14.5M Mar $20M Abr $7.8M</canvas></div>
         </div>
-        <div class="card" style="margin-top:10px">
+        <div class="card">
           <div class="card-hdr"><span class="card-title">Detalle de costos operativos</span></div>
-          <table class="tbl">
-            <thead><tr><th>Mes</th><th>Proveedor</th><th>Concepto</th><th>Subtotal</th><th>IVA</th><th>Total</th></tr></thead>
-            <tbody>
-              <tr><td>Enero</td><td>Friomaster</td><td>Insumos refrigeración</td><td>$3.8M</td><td>$722K</td><td>$4.5M</td></tr>
-              <tr><td>Enero</td><td>HK Distribuciones</td><td>Repuestos A/C</td><td>$2.2M</td><td>$418K</td><td>$2.6M</td></tr>
-              <tr><td>Febrero</td><td>Friomaster</td><td>Insumos refrigeración</td><td>$6.1M</td><td>$1.2M</td><td>$7.2M</td></tr>
-              <tr><td>Febrero</td><td>Navissi / VR46</td><td>Materiales instalación</td><td>$3.4M</td><td>$646K</td><td>$4.0M</td></tr>
-              <tr><td>Marzo</td><td>Friomaster</td><td>Insumos refrigeración</td><td>$9.8M</td><td>$1.9M</td><td>$11.6M</td></tr>
-              <tr><td>Marzo</td><td>HK Distribuciones</td><td>Repuestos A/C</td><td>$5.2M</td><td>$988K</td><td>$6.2M</td></tr>
-              <tr><td>Abril</td><td>Friomaster</td><td>Insumos refrigeración</td><td>$4.1M</td><td>$779K</td><td>$4.9M</td></tr>
-            </tbody>
-          </table>
+          <table class="tbl"><thead><tr><th>Mes</th><th>Proveedor</th><th>Concepto</th><th>Subtotal</th><th>IVA</th><th>Total</th></tr></thead>
+          <tbody>
+            <tr><td>Enero</td><td>Friomaster</td><td>Insumos refrigeración</td><td>$3.8M</td><td>$722K</td><td>$4.5M</td></tr>
+            <tr><td>Enero</td><td>HK Distribuciones</td><td>Repuestos A/C</td><td>$2.2M</td><td>$418K</td><td>$2.6M</td></tr>
+            <tr><td>Febrero</td><td>Friomaster</td><td>Insumos refrigeración</td><td>$6.1M</td><td>$1.2M</td><td>$7.2M</td></tr>
+            <tr><td>Febrero</td><td>Navissi / VR46</td><td>Materiales instalación</td><td>$3.4M</td><td>$646K</td><td>$4.0M</td></tr>
+            <tr><td>Marzo</td><td>Friomaster</td><td>Insumos refrigeración</td><td>$9.8M</td><td>$1.9M</td><td>$11.6M</td></tr>
+            <tr><td>Marzo</td><td>HK Distribuciones</td><td>Repuestos A/C</td><td>$5.2M</td><td>$988K</td><td>$6.2M</td></tr>
+            <tr><td>Abril</td><td>Friomaster</td><td>Insumos refrigeración</td><td>$4.1M</td><td>$779K</td><td>$4.9M</td></tr>
+          </tbody></table>
         </div>
       </div>
 
@@ -343,24 +329,22 @@
           <div class="mc"><div class="mc-label">Gastos totales 2026</div><div class="mc-val mc-down">$68.7M</div><div class="mc-sub mc-down">↑ 36% vs 2024</div></div>
           <div class="mc"><div class="mc-label">Promedio mensual</div><div class="mc-val">$17.2M</div><div class="mc-sub">Enero–Abril</div></div>
         </div>
-        <div class="card">
+        <div class="card" style="margin-bottom:10px">
           <div class="card-hdr"><span class="card-title">Gastos mensuales vs ingresos</span></div>
-          <div style="position:relative;width:100%;height:160px"><canvas id="c-gast" role="img" aria-label="Gastos mensuales 2026">Ene $16.8M, Feb $18.2M, Mar $22.1M, Abr $11.6M</canvas></div>
+          <div style="position:relative;width:100%;height:150px"><canvas id="c-gast" role="img" aria-label="Gastos mensuales 2026">Ene $16.8M Feb $18.2M Mar $22.1M Abr $11.6M</canvas></div>
         </div>
-        <div class="card" style="margin-top:10px">
+        <div class="card">
           <div class="card-hdr"><span class="card-title">Detalle gastos administrativos</span></div>
-          <table class="tbl">
-            <thead><tr><th>Mes</th><th>Concepto</th><th>Categoría</th><th>Total</th><th>% del ingreso</th></tr></thead>
-            <tbody>
-              <tr><td>Enero</td><td>Nómina técnicos</td><td>Personal</td><td>$8.5M</td><td>20.2%</td></tr>
-              <tr><td>Enero</td><td>Arriendo oficina</td><td>Fijo</td><td>$2.8M</td><td>6.7%</td></tr>
-              <tr><td>Febrero</td><td>Nómina técnicos</td><td>Personal</td><td>$9.2M</td><td>15.9%</td></tr>
-              <tr><td>Febrero</td><td>Transporte operativo</td><td>Operacional</td><td>$3.1M</td><td>5.4%</td></tr>
-              <tr><td>Marzo</td><td>Nómina técnicos</td><td>Personal</td><td>$11.4M</td><td>12.5%</td></tr>
-              <tr><td>Marzo</td><td>Herramientas y equipos</td><td>Capital</td><td>$4.8M</td><td>5.3%</td></tr>
-              <tr><td>Abril</td><td>Nómina técnicos</td><td>Personal</td><td>$6.2M</td><td>13.7%</td></tr>
-            </tbody>
-          </table>
+          <table class="tbl"><thead><tr><th>Mes</th><th>Concepto</th><th>Categoría</th><th>Total</th><th>% ingreso</th></tr></thead>
+          <tbody>
+            <tr><td>Enero</td><td>Nómina técnicos</td><td>Personal</td><td>$8.5M</td><td>20.2%</td></tr>
+            <tr><td>Enero</td><td>Arriendo oficina</td><td>Fijo</td><td>$2.8M</td><td>6.7%</td></tr>
+            <tr><td>Febrero</td><td>Nómina técnicos</td><td>Personal</td><td>$9.2M</td><td>15.9%</td></tr>
+            <tr><td>Febrero</td><td>Transporte operativo</td><td>Operacional</td><td>$3.1M</td><td>5.4%</td></tr>
+            <tr><td>Marzo</td><td>Nómina técnicos</td><td>Personal</td><td>$11.4M</td><td>12.5%</td></tr>
+            <tr><td>Marzo</td><td>Herramientas y equipos</td><td>Capital</td><td>$4.8M</td><td>5.3%</td></tr>
+            <tr><td>Abril</td><td>Nómina técnicos</td><td>Personal</td><td>$6.2M</td><td>13.7%</td></tr>
+          </tbody></table>
         </div>
       </div>
 
@@ -369,7 +353,7 @@
         <div class="metrics" style="grid-template-columns:repeat(3,minmax(0,1fr))">
           <div class="mc"><div class="mc-label">Total cartera abierta</div><div class="mc-val mc-warn">$53.6M</div><div class="mc-sub">32 facturas pendientes</div></div>
           <div class="mc"><div class="mc-label">Saldo por recaudar</div><div class="mc-val">$27.3M</div><div class="mc-sub">Pendiente ejecutar</div></div>
-          <div class="mc"><div class="mc-label">Disponible neto</div><div class="mc-val mc-up">$6.4M</div><div class="mc-sub">Recaudado–pagos</div></div>
+          <div class="mc accent"><div class="mc-label">Disponible neto</div><div class="mc-val mc-up">$6.4M</div><div class="mc-sub">Recaudado–pagos</div></div>
         </div>
         <div class="tab-pills">
           <div class="pill active" onclick="filterPill(this,'all-cart')">Todos</div>
@@ -378,19 +362,16 @@
           <div class="pill" onclick="filterPill(this,'+60')">+60 días</div>
         </div>
         <div class="card">
-          <div class="card-hdr"><span class="card-title">Cartera abierta — detalle por cliente</span><button class="btn-outline" onclick="showToast('Exportando cartera a PDF...')">Exportar PDF</button></div>
-          <table class="tbl">
-            <thead><tr><th>Cliente</th><th>N° Factura</th><th>Tipo</th><th>Total</th><th>Anticipo</th><th>Saldo</th><th>Estado</th></tr></thead>
-            <tbody>
-              <tr onclick="openModal('FD SAN JORGE','FV399','$952K','CARTERA','Mantenimiento','Abr 2026')"><td>FD San Jorge</td><td>FV399</td><td>FV</td><td>$975.8K</td><td>—</td><td>$952.4K</td><td><span class="st s-cart">Cartera</span></td></tr>
-              <tr onclick="openModal('FD SAN JORGE','FV405','$7.9M','CARTERA','Reparación','Abr 2026')"><td>FD San Jorge</td><td>FV405</td><td>FV</td><td>$16.5M</td><td>$8.3M</td><td>$7.9M</td><td><span class="st s-cart">Cartera</span></td></tr>
-              <tr onclick="openModal('Wh Logistic','FV401','$2.0M','CARTERA','Mantenimiento','Abr 2026')"><td>Wh Logistic</td><td>FV401</td><td>FV</td><td>$4.9M</td><td>$3.0M</td><td>$2.0M</td><td><span class="st s-cart">Cartera</span></td></tr>
-              <tr onclick="openModal('IGICOL SAS','FV396','$2.1M','CARTERA','Instalación','Mar 2026')"><td>IGICOL SAS</td><td>FV396</td><td>FV</td><td>$7.1M</td><td>$5.0M</td><td>$2.1M</td><td><span class="st s-cart">Cartera</span></td></tr>
-              <tr onclick="openModal('QVALTEC','FV','$8.6M','CARTERA','Mantenimiento','Abr 2026')"><td>QVALTEC</td><td>FV (Abr)</td><td>FV</td><td>$8.6M</td><td>$4.3M</td><td>$4.1M</td><td><span class="st s-cart">Cartera</span></td></tr>
-              <tr onclick="openModal('AUTOMOTORA N&S','FV390','$1.4M','CARTERA','Mantenimiento','Abr 2026')"><td>Automotora N&S</td><td>FV390</td><td>FV</td><td>$2.8M</td><td>$1.4M</td><td>$1.4M</td><td><span class="st s-cart">Cartera</span></td></tr>
-              <tr onclick="openModal('MAHCOL SAS','FV400','$279K','CARTERA','Mantenimiento','Abr 2026')"><td>MAHCOL SAS</td><td>FV400</td><td>FV</td><td>$285.6K</td><td>—</td><td>$279K</td><td><span class="st s-cart">Cartera</span></td></tr>
-            </tbody>
-          </table>
+          <div class="card-hdr"><span class="card-title">Cartera abierta — detalle</span><button class="btn-outline" onclick="showToast('Exportando cartera a PDF...')">Exportar PDF</button></div>
+          <table class="tbl"><thead><tr><th>Cliente</th><th>N° Factura</th><th>Tipo</th><th>Total</th><th>Anticipo</th><th>Saldo</th><th>Estado</th></tr></thead>
+          <tbody>
+            <tr onclick="openModal('FD SAN JORGE','FV399','$952K','CARTERA','Mantenimiento','Abr 2026')"><td>FD San Jorge</td><td>FV399</td><td>FV</td><td>$975K</td><td>—</td><td>$952K</td><td><span class="st s-cart">Cartera</span></td></tr>
+            <tr onclick="openModal('FD SAN JORGE','FV405','$7.9M','CARTERA','Reparación','Abr 2026')"><td>FD San Jorge</td><td>FV405</td><td>FV</td><td>$16.5M</td><td>$8.3M</td><td>$7.9M</td><td><span class="st s-cart">Cartera</span></td></tr>
+            <tr onclick="openModal('Wh Logistic','FV401','$2.0M','CARTERA','Mantenimiento','Abr 2026')"><td>Wh Logistic</td><td>FV401</td><td>FV</td><td>$4.9M</td><td>$3.0M</td><td>$2.0M</td><td><span class="st s-cart">Cartera</span></td></tr>
+            <tr onclick="openModal('IGICOL SAS','FV396','$2.1M','CARTERA','Instalación','Mar 2026')"><td>IGICOL SAS</td><td>FV396</td><td>FV</td><td>$7.1M</td><td>$5.0M</td><td>$2.1M</td><td><span class="st s-cart">Cartera</span></td></tr>
+            <tr onclick="openModal('QVALTEC','FV Abr','$8.6M','CARTERA','Mantenimiento','Abr 2026')"><td>QVALTEC</td><td>FV (Abr)</td><td>FV</td><td>$8.6M</td><td>$4.3M</td><td>$4.1M</td><td><span class="st s-cart">Cartera</span></td></tr>
+            <tr onclick="openModal('AUTOMOTORA N&S','FV390','$1.4M','CARTERA','Mantenimiento','Abr 2026')"><td>Automotora N&S</td><td>FV390</td><td>FV</td><td>$2.8M</td><td>$1.4M</td><td>$1.4M</td><td><span class="st s-cart">Cartera</span></td></tr>
+          </tbody></table>
         </div>
       </div>
 
@@ -399,35 +380,35 @@
         <div class="row2b">
           <div>
             <div class="section-title">Directorio de clientes</div>
-            <div class="cliente-card" onclick="openModal('FD SAN JORGE','NIT 800.100.200-1','$20.9M total','Activo','Reparación+Mtto','Desde 2024')">
+            <div class="cliente-card" onclick="openModal('FD SAN JORGE','NIT 800.100.200-1','$20.9M','Activo','Reparación+Mtto','Desde 2024')">
               <div class="cli-av">FD</div>
-              <div style="flex:1"><div style="font-size:12px;font-weight:500;color:var(--color-text-primary)">FD San Jorge</div><div style="font-size:10px;color:var(--color-text-secondary)">NIT 800.100.200-1 · 18 facturas</div></div>
+              <div style="flex:1"><div style="font-size:12px;font-weight:600;color:#111">FD San Jorge</div><div style="font-size:10px;color:#888">NIT 800.100.200-1 · 18 facturas</div></div>
               <span class="st s-ok">Activo</span>
             </div>
-            <div class="cliente-card" onclick="openModal('Wh Logistic','NIT 900.321.450-5','$17.7M total','Activo','Mantenimiento','Desde 2024')">
+            <div class="cliente-card" onclick="openModal('Wh Logistic','NIT 900.321.450-5','$17.7M','Activo','Mantenimiento','Desde 2024')">
               <div class="cli-av">WH</div>
-              <div style="flex:1"><div style="font-size:12px;font-weight:500;color:var(--color-text-primary)">Wh Logistic</div><div style="font-size:10px;color:var(--color-text-secondary)">NIT 900.321.450-5 · 12 facturas</div></div>
+              <div style="flex:1"><div style="font-size:12px;font-weight:600;color:#111">Wh Logistic</div><div style="font-size:10px;color:#888">NIT 900.321.450-5 · 12 facturas</div></div>
               <span class="st s-ok">Activo</span>
             </div>
-            <div class="cliente-card" onclick="openModal('QVALTEC','NIT 900.876.543-2','$9.3M total','Cartera','Mantenimiento','Desde 2024')">
-              <div class="cli-av" style="background:#faeeda;color:#633806">QV</div>
-              <div style="flex:1"><div style="font-size:12px;font-weight:500;color:var(--color-text-primary)">QVALTEC</div><div style="font-size:10px;color:var(--color-text-secondary)">NIT 900.876.543-2 · 8 facturas</div></div>
+            <div class="cliente-card" onclick="openModal('QVALTEC','NIT 900.876.543-2','$9.3M','CARTERA','Mantenimiento','Desde 2024')">
+              <div class="cli-av" style="background:#fff7e6;color:#7a4a00">QV</div>
+              <div style="flex:1"><div style="font-size:12px;font-weight:600;color:#111">QVALTEC</div><div style="font-size:10px;color:#888">NIT 900.876.543-2 · 8 facturas</div></div>
               <span class="st s-cart">Cartera</span>
             </div>
-            <div class="cliente-card" onclick="openModal('IGICOL SAS','NIT 901.234.567-0','$7.4M total','Activo','Instalación','Desde 2025')">
+            <div class="cliente-card" onclick="openModal('IGICOL SAS','NIT 901.234.567-0','$7.4M','Activo','Instalación','Desde 2025')">
               <div class="cli-av">IG</div>
-              <div style="flex:1"><div style="font-size:12px;font-weight:500;color:var(--color-text-primary)">IGICOL SAS</div><div style="font-size:10px;color:var(--color-text-secondary)">NIT 901.234.567-0 · 6 facturas</div></div>
+              <div style="flex:1"><div style="font-size:12px;font-weight:600;color:#111">IGICOL SAS</div><div style="font-size:10px;color:#888">NIT 901.234.567-0 · 6 facturas</div></div>
               <span class="st s-ok">Activo</span>
             </div>
-            <div class="cliente-card" onclick="openModal('Andres Florez Healthcare','CC 79.654.321','$9.6M total','Activo','Instalación','Desde 2025')">
+            <div class="cliente-card" onclick="openModal('Andres Florez','CC 79.654.321','$9.6M','Activo','Instalación','Desde 2025')">
               <div class="cli-av">AF</div>
-              <div style="flex:1"><div style="font-size:12px;font-weight:500;color:var(--color-text-primary)">Andres Florez Healthcare</div><div style="font-size:10px;color:var(--color-text-secondary)">CC 79.654.321 · 9 facturas</div></div>
+              <div style="flex:1"><div style="font-size:12px;font-weight:600;color:#111">Andres Florez Healthcare</div><div style="font-size:10px;color:#888">CC 79.654.321 · 9 facturas</div></div>
               <span class="st s-ok">Activo</span>
             </div>
           </div>
           <div>
-            <div class="section-title">Resumen de cartera por cliente</div>
-            <div style="position:relative;width:100%;height:220px"><canvas id="c-cli" role="img" aria-label="Facturación por cliente">Top clientes por facturación 2026</canvas></div>
+            <div class="section-title">Facturación por cliente</div>
+            <div style="position:relative;width:100%;height:220px"><canvas id="c-cli" role="img" aria-label="Facturación por cliente">Top 5 clientes 2026</canvas></div>
           </div>
         </div>
       </div>
@@ -439,25 +420,27 @@
           <div>
             <div class="iva-box"><div class="iva-label">IVA ventas (Ene–Feb)</div><div class="iva-val" style="color:#1DB874">$2.417.379</div></div>
             <div class="iva-box"><div class="iva-label">IVA compras (Ene–Feb)</div><div class="iva-val" style="color:#e24b4a">$3.966.873</div></div>
-            <div class="iva-box" style="border:0.5px solid #3DDC97"><div class="iva-label">Saldo a favor DIAN</div><div class="iva-val" style="color:#1DB874">$1.549.494</div><div style="font-size:10px;color:var(--color-text-secondary);margin-top:2px">Devolución o compensación</div></div>
+            <div class="iva-box" style="border-color:#3DDC97;border-width:2px"><div class="iva-label">Saldo a favor DIAN</div><div class="iva-val" style="color:#1DB874">$1.549.494</div><div style="font-size:10px;color:#888;margin-top:2px">Devolución o compensación</div></div>
           </div>
           <div class="card">
-            <div class="card-title" style="margin-bottom:8px">Retenciones en la fuente</div>
-            <table class="tbl">
-              <thead><tr><th>Cliente</th><th>Factura</th><th>Base</th><th>Rete %</th><th>Valor</th></tr></thead>
-              <tbody>
-                <tr><td>FD San Jorge</td><td>FV399</td><td>$820K</td><td>2.5%</td><td>$23.4K</td></tr>
-                <tr><td>FD San Jorge</td><td>FV405</td><td>$13.9M</td><td>2.5%</td><td>$347.3K</td></tr>
-                <tr><td>Automotora N&S</td><td>FV390</td><td>$2.4M</td><td>2.5%</td><td>$59.2K</td></tr>
-                <tr><td>MAHCOL SAS</td><td>FV400</td><td>$240K</td><td>2.5%</td><td>$6.0K</td></tr>
-                <tr><td>QVALTEC</td><td>FV (Abr)</td><td>$7.2M</td><td>2.5%</td><td>$180.3K</td></tr>
-              </tbody>
-            </table>
+            <div class="card-hdr"><span class="card-title">Retenciones en la fuente</span></div>
+            <table class="tbl"><thead><tr><th>Cliente</th><th>Factura</th><th>Base</th><th>Rete</th><th>Valor</th></tr></thead>
+            <tbody>
+              <tr><td>FD San Jorge</td><td>FV399</td><td>$820K</td><td>2.5%</td><td>$23.4K</td></tr>
+              <tr><td>FD San Jorge</td><td>FV405</td><td>$13.9M</td><td>2.5%</td><td>$347K</td></tr>
+              <tr><td>Automotora N&S</td><td>FV390</td><td>$2.4M</td><td>2.5%</td><td>$59.2K</td></tr>
+              <tr><td>MAHCOL SAS</td><td>FV400</td><td>$240K</td><td>2.5%</td><td>$6.0K</td></tr>
+              <tr><td>QVALTEC</td><td>FV (Abr)</td><td>$7.2M</td><td>2.5%</td><td>$180K</td></tr>
+            </tbody></table>
           </div>
         </div>
         <div class="card">
           <div class="card-hdr"><span class="card-title">Proyección IVA bimestral 2026</span></div>
-          <div style="position:relative;width:100%;height:140px"><canvas id="c-iva" role="img" aria-label="IVA ventas vs compras por bimestre">IVA ventas vs compras 2026</canvas></div>
+          <div style="display:flex;gap:10px;margin-bottom:7px;font-size:10px;color:#666">
+            <span><span style="display:inline-block;width:9px;height:9px;border-radius:2px;background:#3DDC97;margin-right:3px;vertical-align:middle"></span>IVA Ventas</span>
+            <span><span style="display:inline-block;width:9px;height:9px;border-radius:2px;background:#e24b4a;margin-right:3px;vertical-align:middle"></span>IVA Compras</span>
+          </div>
+          <div style="position:relative;width:100%;height:130px"><canvas id="c-iva" role="img" aria-label="IVA ventas vs compras bimestral">Ene-Feb ventas $2.4M compras $4.0M</canvas></div>
         </div>
       </div>
 
@@ -465,36 +448,33 @@
       <div class="page" id="p-pg">
         <div class="section-title">Estado de resultados — 2026 (Enero–Abril)</div>
         <div class="card" style="margin-bottom:10px">
-          <table class="tbl">
-            <thead><tr><th>Concepto</th><th>Enero</th><th>Febrero</th><th>Marzo</th><th>Abril</th><th>Acumulado</th></tr></thead>
-            <tbody>
-              <tr style="font-weight:500"><td>Ingresos brutos</td><td>$42.1M</td><td>$57.9M</td><td>$91.4M</td><td>$45.2M</td><td style="color:#1DB874">$236.6M</td></tr>
-              <tr><td style="color:var(--color-text-secondary);padding-left:14px">IVA generado</td><td>$2.1M</td><td>$4.1M</td><td>$9.7M</td><td>$3.6M</td><td>$19.5M</td></tr>
-              <tr style="font-weight:500"><td>(-) Costos operativos</td><td>$8.2M</td><td>$14.5M</td><td>$20.0M</td><td>$7.8M</td><td style="color:#e24b4a">$50.5M</td></tr>
-              <tr style="font-weight:500"><td>(-) Gastos</td><td>$16.8M</td><td>$18.2M</td><td>$22.1M</td><td>$11.6M</td><td style="color:#e24b4a">$68.7M</td></tr>
-              <tr style="border-top:1.5px solid var(--color-border-secondary);font-weight:500"><td>Utilidad operacional</td><td style="color:#1DB874">$17.1M</td><td style="color:#1DB874">$25.2M</td><td style="color:#1DB874">$49.3M</td><td style="color:#1DB874">$25.8M</td><td style="color:#1DB874;font-size:14px">$117.4M</td></tr>
-              <tr><td style="color:var(--color-text-secondary)">Margen %</td><td>40.6%</td><td>43.5%</td><td>53.9%</td><td>57.1%</td><td style="font-weight:500">49.6%</td></tr>
-            </tbody>
-          </table>
+          <table class="tbl"><thead><tr><th>Concepto</th><th>Enero</th><th>Febrero</th><th>Marzo</th><th>Abril</th><th>Acumulado</th></tr></thead>
+          <tbody>
+            <tr style="font-weight:600"><td>Ingresos brutos</td><td>$42.1M</td><td>$57.9M</td><td>$91.4M</td><td>$45.2M</td><td style="color:#1DB874">$236.6M</td></tr>
+            <tr><td style="color:#888;padding-left:14px">IVA generado</td><td>$2.1M</td><td>$4.1M</td><td>$9.7M</td><td>$3.6M</td><td>$19.5M</td></tr>
+            <tr style="font-weight:600"><td>(−) Costos operativos</td><td>$8.2M</td><td>$14.5M</td><td>$20.0M</td><td>$7.8M</td><td style="color:#e24b4a">$50.5M</td></tr>
+            <tr style="font-weight:600"><td>(−) Gastos</td><td>$16.8M</td><td>$18.2M</td><td>$22.1M</td><td>$11.6M</td><td style="color:#e24b4a">$68.7M</td></tr>
+            <tr style="border-top:2px solid #3DDC97;font-weight:700"><td>Utilidad operacional</td><td style="color:#1DB874">$17.1M</td><td style="color:#1DB874">$25.2M</td><td style="color:#1DB874">$49.3M</td><td style="color:#1DB874">$25.8M</td><td style="color:#1DB874;font-size:15px">$117.4M</td></tr>
+            <tr><td style="color:#888">Margen %</td><td>40.6%</td><td>43.5%</td><td>53.9%</td><td>57.1%</td><td style="font-weight:600">49.6%</td></tr>
+          </tbody></table>
         </div>
         <div class="card">
           <div class="card-hdr"><span class="card-title">Margen operacional mensual</span></div>
-          <div style="position:relative;width:100%;height:140px"><canvas id="c-pg" role="img" aria-label="Margen operacional mensual 2026">Ene 40.6%, Feb 43.5%, Mar 53.9%, Abr 57.1%</canvas></div>
+          <div style="position:relative;width:100%;height:135px"><canvas id="c-pg" role="img" aria-label="Margen operacional mensual">Ene 40.6% Feb 43.5% Mar 53.9% Abr 57.1%</canvas></div>
         </div>
       </div>
 
     </div>
   </div>
 
-  <!-- MODAL -->
   <div class="modal-bg" id="modal-bg" onclick="closeModal(event)">
     <div class="modal" onclick="event.stopPropagation()">
       <button class="modal-close" onclick="closeModal()">✕</button>
-      <div class="modal-title" id="m-title">Detalle transacción</div>
+      <div class="modal-title" id="m-title"></div>
       <div id="m-body"></div>
       <div style="margin-top:14px;display:flex;gap:6px">
-        <button class="btn-ac" onclick="showToast('Acción registrada');closeModal()">Registrar abono</button>
-        <button class="btn-outline" onclick="showToast('Exportando PDF...');closeModal()">PDF</button>
+        <button class="btn-ac" onclick="showToast('Abono registrado correctamente');closeModal()">Registrar abono</button>
+        <button class="btn-outline" onclick="showToast('Generando PDF...');closeModal()">Exportar PDF</button>
       </div>
     </div>
   </div>
@@ -504,159 +484,122 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <script>
-const yearData={
-  2024:{ing:283.5,cost:150.0,gast:102.3,cart:28.4,cartN:18,meses:['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'],ingA:[35.8,32.7,45.2,31.5,77.7,15.3,24.2,75.6,46.7,45.0,36.0,26.5],costA:[7.5,8.3,8.2,12.9,24.7,1.5,4.9,30.7,8.3,13.6,8.0,3.0],gastA:[5.4,8.1,8.6,6.0,12.5,8.6,5.3,6.1,11.4,9.9,10.6,9.4]},
-  2025:{ing:401.7,cost:199.3,gast:188.3,cart:42.1,cartN:27,meses:['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep'],ingA:[14.0,19.5,39.9,48.5,47.5,25.8,110.2,84.0,35.1],costA:[0.3,1.8,0.4,0,0,0,0,0,0],gastA:[6.6,8.2,10.3,17.0,17.7,14.7,17.4,16.8,13.5]},
-  2026:{ing:117.5,cost:50.5,gast:68.7,cart:53.6,cartN:32,meses:['Ene','Feb','Mar','Abr'],ingA:[42.1,57.9,91.4,45.2],costA:[8.2,14.5,20.0,7.8],gastA:[16.8,18.2,22.1,11.6]}
+const YD={
+  2024:{ing:283.5,cost:150.0,gast:102.3,cart:28.4,cN:18,m:['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'],iA:[35.8,32.7,45.2,31.5,77.7,15.3,24.2,75.6,46.7,45.0,36.0,26.5],cA:[7.5,8.3,8.2,12.9,24.7,1.5,4.9,30.7,8.3,13.6,8.0,3.0],gA:[5.4,8.1,8.6,6.0,12.5,8.6,5.3,6.1,11.4,9.9,10.6,9.4]},
+  2025:{ing:401.7,cost:199.3,gast:188.3,cart:42.1,cN:27,m:['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep'],iA:[14.0,19.5,39.9,48.5,47.5,25.8,110.2,84.0,35.1],cA:[0.3,1.8,0.4,0,0,0,0,0,0],gA:[6.6,8.2,10.3,17.0,17.7,14.7,17.4,16.8,13.5]},
+  2026:{ing:117.5,cost:50.5,gast:68.7,cart:53.6,cN:32,m:['Ene','Feb','Mar','Abr'],iA:[42.1,57.9,91.4,45.2],cA:[8.2,14.5,20.0,7.8],gA:[16.8,18.2,22.1,11.6]}
 };
-let yr=2026;
-const charts={};
-function gc(){return 'rgba(0,0,0,0.06)'}
-function tc(){return 'rgba(0,0,0,0.38)'}
-
-function makeChart(id,type,labels,datasets,opts){
-  if(charts[id])charts[id].destroy();
-  const ctx=document.getElementById(id);
-  if(!ctx)return;
-  charts[id]=new Chart(ctx,{type,data:{labels,datasets},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},...opts}});
+let yr=2026;const CH={};
+const GC='rgba(0,0,0,0.07)',TC='rgba(0,0,0,0.42)';
+const xO={grid:{color:GC},ticks:{color:TC,font:{size:9},autoSkip:false,maxRotation:0}};
+const yO={grid:{color:GC},ticks:{color:TC,font:{size:9},callback:v=>v+'M'}};
+function mk(id,type,labels,datasets,extra){
+  if(CH[id])CH[id].destroy();
+  const c=document.getElementById(id);if(!c)return;
+  CH[id]=new Chart(c,{type,data:{labels,datasets},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},...extra}});
 }
-
-function buildAllCharts(){
-  const d=yearData[yr];
-  const gc2='rgba(0,0,0,0.06)',tc2='rgba(0,0,0,0.38)';
-  const xOpts={grid:{color:gc2},ticks:{color:tc2,font:{size:9},autoSkip:false,maxRotation:0}};
-  const yOpts={grid:{color:gc2},ticks:{color:tc2,font:{size:9},callback:v=>v+'M'}};
-
-  makeChart('c-dash','bar',d.meses,[
-    {label:'Ingresos',data:d.ingA,backgroundColor:'rgba(61,220,151,0.85)',borderRadius:3},
-    {label:'Costos',data:d.costA,backgroundColor:'rgba(55,138,221,0.72)',borderRadius:3},
-    {label:'Gastos',data:d.gastA,backgroundColor:'rgba(239,159,39,0.72)',borderRadius:3}
-  ],{scales:{x:xOpts,y:yOpts}});
-
-  makeChart('c-anual','bar',['2024','2025','2026*'],[
-    {data:[283.5,401.7,117.5],backgroundColor:['rgba(136,135,128,0.5)','rgba(136,135,128,0.5)','#3DDC97'],borderRadius:3}
-  ],{scales:{x:{grid:{display:false},ticks:{color:tc2,font:{size:9}}},y:{display:false}}});
-
-  makeChart('c-ing','bar',d.meses,[
-    {label:'Ingresos',data:d.ingA,backgroundColor:'rgba(61,220,151,0.85)',borderRadius:3}
-  ],{scales:{x:xOpts,y:yOpts}});
-
-  makeChart('c-cost','bar',d.meses,[
-    {label:'Costos',data:d.costA,backgroundColor:'rgba(55,138,221,0.75)',borderRadius:3}
-  ],{scales:{x:xOpts,y:yOpts}});
-
-  makeChart('c-gast','bar',d.meses,[
-    {label:'Ingresos',data:d.ingA,backgroundColor:'rgba(61,220,151,0.45)',borderRadius:3},
-    {label:'Gastos',data:d.gastA,backgroundColor:'rgba(239,159,39,0.8)',borderRadius:3}
-  ],{scales:{x:xOpts,y:yOpts}});
-
-  makeChart('c-cli','bar',['FD San Jorge','Wh Logistic','A. Florez','QVALTEC','IGICOL'],[
+function buildCharts(){
+  const d=YD[yr];
+  mk('c-dash','bar',d.m,[
+    {label:'Ingresos',data:d.iA,backgroundColor:'rgba(61,220,151,0.85)',borderRadius:3},
+    {label:'Costos',data:d.cA,backgroundColor:'rgba(55,138,221,0.75)',borderRadius:3},
+    {label:'Gastos',data:d.gA,backgroundColor:'rgba(239,159,39,0.75)',borderRadius:3}
+  ],{scales:{x:xO,y:yO}});
+  mk('c-anual','bar',['2024','2025','2026*'],[
+    {data:[283.5,401.7,117.5],backgroundColor:['#c8d4cf','#c8d4cf','#3DDC97'],borderRadius:3}
+  ],{scales:{x:{grid:{display:false},ticks:{color:TC,font:{size:9}}},y:{display:false}}});
+  mk('c-ing','bar',d.m,[{label:'Ingresos',data:d.iA,backgroundColor:'rgba(61,220,151,0.85)',borderRadius:4}],{scales:{x:xO,y:yO}});
+  mk('c-cost','bar',d.m,[{label:'Costos',data:d.cA,backgroundColor:'rgba(55,138,221,0.8)',borderRadius:4}],{scales:{x:xO,y:yO}});
+  mk('c-gast','bar',d.m,[
+    {label:'Ingresos',data:d.iA,backgroundColor:'rgba(61,220,151,0.3)',borderRadius:3},
+    {label:'Gastos',data:d.gA,backgroundColor:'rgba(239,159,39,0.85)',borderRadius:3}
+  ],{scales:{x:xO,y:yO}});
+  mk('c-cli','bar',['FD San Jorge','Wh Logistic','A. Florez','QVALTEC','IGICOL'],[
     {data:[20.9,17.7,9.6,9.3,7.4],backgroundColor:['#3DDC97','#3DDC97','#3DDC97','#EF9F27','#3DDC97'],borderRadius:4}
-  ],{indexAxis:'y',scales:{y:{grid:{display:false},ticks:{color:tc2,font:{size:9}}},x:{grid:{color:gc2},ticks:{color:tc2,font:{size:9},callback:v=>v+'M'}}}});
-
-  makeChart('c-iva','bar',['Ene–Feb','Mar–Abr (est.)'],[
-    {label:'IVA Ventas',data:[2.42,4.1],backgroundColor:'rgba(61,220,151,0.8)',borderRadius:3},
-    {label:'IVA Compras',data:[3.97,5.2],backgroundColor:'rgba(226,75,74,0.7)',borderRadius:3}
-  ],{scales:{x:xOpts,y:yOpts}});
-
-  makeChart('c-pg','line',d.meses,[
-    {label:'Margen %',data:[40.6,43.5,53.9,57.1],borderColor:'#3DDC97',backgroundColor:'rgba(61,220,151,0.15)',borderWidth:2,fill:true,tension:0.4,pointBackgroundColor:'#3DDC97',pointRadius:4}
-  ],{scales:{x:xOpts,y:{grid:{color:gc2},ticks:{color:tc2,font:{size:9},callback:v=>v+'%'}}}});
+  ],{indexAxis:'y',scales:{y:{grid:{display:false},ticks:{color:TC,font:{size:10}}},x:{grid:{color:GC},ticks:{color:TC,font:{size:9},callback:v=>v+'M'}}}});
+  mk('c-iva','bar',['Ene–Feb','Mar–Abr (est.)'],[
+    {label:'IVA Ventas',data:[2.42,4.1],backgroundColor:'rgba(61,220,151,0.85)',borderRadius:3},
+    {label:'IVA Compras',data:[3.97,5.2],backgroundColor:'rgba(226,75,74,0.8)',borderRadius:3}
+  ],{scales:{x:xO,y:{...yO,ticks:{...yO.ticks,callback:v=>v+'M'}}}});
+  mk('c-pg','line',d.m,[
+    {label:'Margen',data:[40.6,43.5,53.9,57.1],borderColor:'#3DDC97',backgroundColor:'rgba(61,220,151,0.12)',borderWidth:2.5,fill:true,tension:0.4,pointBackgroundColor:'#3DDC97',pointRadius:5,pointBorderColor:'#fff',pointBorderWidth:2}
+  ],{scales:{x:xO,y:{...yO,ticks:{...yO.ticks,callback:v=>v+'%'}}}});
 }
 
-const txnData=[
-  {fecha:'2026-04-10',cliente:'QVALTEC',fac:'FV (Abr)',tipo:'FV',serv:'MANTENIMIENTO',total:'$8.6M',estado:'CARTERA'},
-  {fecha:'2026-04-11',cliente:'FISIOTECH',fac:'CC',tipo:'CC',serv:'INSTALACION',total:'$1.8M',estado:'CANCELADO'},
-  {fecha:'2026-04-09',cliente:'FD San Jorge',fac:'FV405',tipo:'FV',serv:'REPARACION',total:'$975K',estado:'CARTERA'},
-  {fecha:'2026-04-08',cliente:'Wh Logistic',fac:'FV401',tipo:'FV',serv:'MANTENIMIENTO',total:'$4.9M',estado:'CARTERA'},
-  {fecha:'2026-04-07',cliente:'IGICOL SAS',fac:'FV396',tipo:'FV',serv:'INSTALACION',total:'$7.1M',estado:'OK'},
-  {fecha:'2026-03-28',cliente:'Andres Florez',fac:'FV392',tipo:'FV',serv:'INSTALACION',total:'$9.6M',estado:'OK'},
-  {fecha:'2026-03-20',cliente:'AUTOMOTORA N&S',fac:'FV390',tipo:'FV',serv:'MANTENIMIENTO',total:'$2.8M',estado:'PN'},
-  {fecha:'2026-03-15',cliente:'MAHCOL SAS',fac:'FV400',tipo:'FV',serv:'MANTENIMIENTO',total:'$285K',estado:'CARTERA'},
-  {fecha:'2026-02-18',cliente:'SAN FERNANDO REAL',fac:'FV366',tipo:'FV',serv:'MANTENIMIENTO',total:'$667K',estado:'CARTERA'},
-  {fecha:'2026-01-22',cliente:'INNOVAQUIMICA',fac:'CC',tipo:'CC',serv:'INSTALACION',total:'$2.2M',estado:'CANCELADO'},
+const TXN=[
+  {f:'2026-04-10',c:'QVALTEC',n:'FV (Abr)',t:'FV',s:'MANTENIMIENTO',tot:'$8.6M',e:'CARTERA'},
+  {f:'2026-04-11',c:'FISIOTECH',n:'CC',t:'CC',s:'INSTALACION',tot:'$1.8M',e:'CANCELADO'},
+  {f:'2026-04-09',c:'FD San Jorge',n:'FV405',t:'FV',s:'REPARACION',tot:'$975K',e:'CARTERA'},
+  {f:'2026-04-08',c:'Wh Logistic',n:'FV401',t:'FV',s:'MANTENIMIENTO',tot:'$4.9M',e:'CARTERA'},
+  {f:'2026-04-07',c:'IGICOL SAS',n:'FV396',t:'FV',s:'INSTALACION',tot:'$7.1M',e:'OK'},
+  {f:'2026-03-28',c:'Andres Florez',n:'FV392',t:'FV',s:'INSTALACION',tot:'$9.6M',e:'OK'},
+  {f:'2026-03-20',c:'AUTOMOTORA N&S',n:'FV390',t:'FV',s:'MANTENIMIENTO',tot:'$2.8M',e:'PN'},
+  {f:'2026-03-15',c:'MAHCOL SAS',n:'FV400',t:'FV',s:'MANTENIMIENTO',tot:'$285K',e:'CARTERA'},
+  {f:'2026-02-18',c:'SAN FERNANDO REAL',n:'FV366',t:'FV',s:'MANTENIMIENTO',tot:'$667K',e:'CARTERA'},
+  {f:'2026-01-22',c:'INNOVAQUIMICA',n:'CC',t:'CC',s:'INSTALACION',tot:'$2.2M',e:'CANCELADO'},
 ];
-let txnFilter='all';
+let txF='all';
+const SM={OK:'s-ok',CANCELADO:'s-ok',CARTERA:'s-cart',PN:'s-pn',ANULADA:'s-anul'};
 function renderTxn(){
   const mes=document.getElementById('f-mes')?.value||'';
   const est=document.getElementById('f-estado')?.value||'';
   const bus=(document.getElementById('f-buscar')?.value||'').toLowerCase();
-  const stMap={OK:'s-ok',CANCELADO:'s-ok',CARTERA:'s-cart',PN:'s-pn',ANULADA:'s-anul'};
-  const rows=txnData.filter(r=>{
-    if(mes&&!r.fecha.includes(mes==='ENERO'?'01':mes==='FEBRERO'?'02':mes==='MARZO'?'03':'04'))return false;
-    if(est&&r.estado!==est)return false;
-    if(bus&&!r.cliente.toLowerCase().includes(bus))return false;
-    if(txnFilter==='FV'&&r.tipo!=='FV')return false;
-    if(txnFilter==='CC'&&r.tipo!=='CC')return false;
-    if(txnFilter==='COSTO'&&r.tipo!=='COSTO')return false;
-    if(txnFilter==='GASTO'&&r.tipo!=='GASTO')return false;
+  const mMap={ENERO:'01',FEBRERO:'02',MARZO:'03',ABRIL:'04'};
+  const rows=TXN.filter(r=>{
+    if(mes&&!r.f.includes(mMap[mes]||''))return false;
+    if(est&&r.e!==est)return false;
+    if(bus&&!r.c.toLowerCase().includes(bus))return false;
+    if(txF==='FV'&&r.t!=='FV')return false;
+    if(txF==='CC'&&r.t!=='CC')return false;
+    if(txF==='COSTO'||txF==='GASTO')return false;
     return true;
   });
-  const tb=document.getElementById('tbody-txn');
-  if(!tb)return;
-  tb.innerHTML=rows.map(r=>`<tr onclick="openModal('${r.cliente}','${r.fac}','${r.total}','${r.estado}','${r.serv}','${r.fecha}')"><td>${r.fecha}</td><td>${r.cliente}</td><td>${r.fac}</td><td>${r.tipo}</td><td>${r.serv}</td><td>${r.total}</td><td><span class="st ${stMap[r.estado]||'s-ok'}">${r.estado}</span></td></tr>`).join('');
+  const tb=document.getElementById('tbody-txn');if(!tb)return;
+  tb.innerHTML=rows.map(r=>`<tr onclick="openModal('${r.c}','${r.n}','${r.tot}','${r.e}','${r.s}','${r.f}')"><td>${r.f}</td><td>${r.c}</td><td>${r.n}</td><td>${r.t}</td><td>${r.s}</td><td>${r.tot}</td><td><span class="st ${SM[r.e]||'s-ok'}">${r.e}</span></td></tr>`).join('');
 }
-
-function filterPill(el,val){
+function filterPill(el,v){
   el.closest('.tab-pills').querySelectorAll('.pill').forEach(p=>p.classList.remove('active'));
-  el.classList.add('active');
-  txnFilter=val;
-  renderTxn();
+  el.classList.add('active');txF=v;renderTxn();
 }
 function applyFilters(){renderTxn();}
-
+function qni(p){return [...document.querySelectorAll('.ni')].find(n=>n.getAttribute('onclick')&&n.getAttribute('onclick').includes(p));}
 function go(page,el){
   document.querySelectorAll('.ni').forEach(n=>n.classList.remove('active'));
-  if(el){
-    const match=[...document.querySelectorAll('.ni')].find(n=>n.getAttribute('onclick')&&n.getAttribute('onclick').includes(page));
-    if(match)match.classList.add('active');
-  }
+  const match=qni(page);if(match)match.classList.add('active');
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  const target=document.getElementById('p-'+page);
-  if(target){target.classList.add('active');}
+  const t=document.getElementById('p-'+page);if(t)t.classList.add('active');
   const titles={dashboard:'Dashboard',transacciones:'Transacciones',ingresos:'Ingresos / FV',costos:'Costos operativos',gastos:'Gastos',cartera:'Cartera',clientes:'Clientes',iva:'IVA / Retenciones',pg:'P&G mensual'};
   document.getElementById('tb-title').textContent=titles[page]||page;
   if(page==='transacciones')setTimeout(renderTxn,50);
-  setTimeout(buildAllCharts,80);
+  setTimeout(buildCharts,80);
 }
-
 function setYear(y,el){
   yr=y;
   document.querySelectorAll('.ytab').forEach(t=>t.classList.remove('active'));
   el.classList.add('active');
-  const d=yearData[y];
+  const d=YD[y];
   document.getElementById('d-ing').textContent='$'+d.ing.toFixed(1)+'M';
   document.getElementById('d-cost').textContent='$'+d.cost.toFixed(1)+'M';
   document.getElementById('d-gast').textContent='$'+d.gast.toFixed(1)+'M';
   document.getElementById('d-cart').textContent='$'+d.cart.toFixed(1)+'M';
   document.getElementById('d-cost-s').textContent=Math.round(d.cost/d.ing*100)+'% del ingreso';
-  document.getElementById('d-cart-s').textContent=d.cartN+' facturas abiertas';
-  buildAllCharts();
+  document.getElementById('d-cart-s').textContent=d.cN+' facturas abiertas';
+  buildCharts();
 }
-
 function openModal(cli,fac,total,estado,tipo,fecha){
   document.getElementById('m-title').textContent=cli;
-  const stMap={OK:'s-ok',CANCELADO:'s-ok',CARTERA:'s-cart',PN:'s-pn'};
   document.getElementById('m-body').innerHTML=`
     <div class="detail-row"><span class="detail-lbl">Factura / Doc</span><span class="detail-val">${fac}</span></div>
     <div class="detail-row"><span class="detail-lbl">Total</span><span class="detail-val" style="color:#1DB874">${total}</span></div>
-    <div class="detail-row"><span class="detail-lbl">Estado</span><span class="detail-val"><span class="st ${stMap[estado]||'s-ok'}">${estado}</span></span></div>
+    <div class="detail-row"><span class="detail-lbl">Estado</span><span class="detail-val"><span class="st ${SM[estado]||'s-ok'}">${estado}</span></span></div>
     <div class="detail-row"><span class="detail-lbl">Tipo servicio</span><span class="detail-val">${tipo}</span></div>
     <div class="detail-row"><span class="detail-lbl">Fecha</span><span class="detail-val">${fecha}</span></div>
-    <div class="detail-row"><span class="detail-lbl">Medio pago</span><span class="detail-val">Davivienda / Bancolombia</span></div>
-    <div style="margin-top:10px;font-size:10px;color:var(--color-text-secondary);border-top:0.5px solid var(--color-border-tertiary);padding-top:8px">Haz clic en "Registrar abono" para actualizar el saldo de cartera.</div>`;
+    <div class="detail-row"><span class="detail-lbl">Medio de pago</span><span class="detail-val">Davivienda / Bancolombia</span></div>
+    <div style="margin-top:10px;padding:8px 10px;background:#f7faf8;border-radius:6px;border:1px solid #dde4e0;font-size:10px;color:#666">Registra un abono parcial para actualizar el saldo de cartera en tiempo real.</div>`;
   document.getElementById('modal-bg').classList.add('open');
 }
-function closeModal(e){
-  if(!e||e.target===document.getElementById('modal-bg'))
-    document.getElementById('modal-bg').classList.remove('open');
-}
-
-function showToast(msg){
-  const t=document.getElementById('toast');
-  t.textContent=msg;t.classList.add('show');
-  setTimeout(()=>t.classList.remove('show'),2400);
-}
-
-setTimeout(()=>{buildAllCharts();renderTxn();},150);
+function closeModal(e){if(!e||e.target===document.getElementById('modal-bg'))document.getElementById('modal-bg').classList.remove('open');}
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2400);}
+setTimeout(()=>{buildCharts();renderTxn();},150);
 </script>
+
